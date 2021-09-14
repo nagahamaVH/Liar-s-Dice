@@ -1,0 +1,233 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Liar's Dice Specifications
+\end_layout
+
+\begin_layout Author
+J.
+ A.
+ Kilgallen
+\end_layout
+
+\begin_layout Date
+September 14th, 2021
+\end_layout
+
+\begin_layout Section
+Rules of the Game
+\end_layout
+
+\begin_layout Standard
+Liar's dice is a game for two or more players.
+ The object of the game is to be the last player with dice.
+ Each player begins with 5 dice and a cup.
+ At the beginning of each round all players shake their dice in the cup
+ and then turn the cup over, being sure to conceal the values of their dice.
+ For the first round a randomly selcted player begins by making a bid.
+ A bid is a statement about the number of dice of a certain value there
+ are collectively i.e.
+ including all opponents dice.
+ The following player then has three options:
+\end_layout
+
+\begin_layout Enumerate
+They may make a higher bid i.e.
+ they claim that there are a higher number of dice of a certain value (which
+ is not necessarily the same value as the previous players bid).
+\end_layout
+
+\begin_layout Enumerate
+They may call the preceding player a liar.
+ In this case all players reveal their dice and should there be less than
+ the number of dice the preceding player bid then that player loses a die.
+ However, Should there be the same number bid, or more, then the player
+ who challenged the bid loses a die.
+\end_layout
+
+\begin_layout Enumerate
+The player could alternatively say 
+\begin_inset Quotes eld
+\end_inset
+
+Spot on
+\begin_inset Quotes erd
+\end_inset
+
+.
+ In this case as well all players reveal their dice.
+ However, if the preceding players bid happens to be exactly the case then
+ the challenging player can either; reclaim a lost die, or force the previous
+ player to lose two dice.
+ Should the bid happen to be false i.e.
+ there were more or less dice of a certain value bid then the challenging
+ player loses a die.
+\end_layout
+
+\begin_layout Standard
+Once a challenge is made the round ends and a new round begins, and the
+ player to the left of the loser of the challenge begins the next round.
+ This continues until only one player has dice remaining.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, there are a couple of extra rules involving sixes.
+ A die with a value of six is 
+\emph on
+wild
+\emph default
+ and can take on any value.
+ For instance if a player made a bid that there were five dice with value
+ of three on the table, and the following player challenged, then if there
+ were four threes and three sixes, then we would say there are seven threes
+ on the table.
+ Consequently, to account for how much less likely there are to be a certain
+ number of sixes on the table than the same number of another value, sixes
+ are worth double for the purposes of bidding.
+ For example if a player bid three fives, then the following player could
+ bid two sixes as the value of two sixes is four.
+ Alternatively if a player bid two sixes then the following player would
+ need to bid seven of another value, or three sixes.
+ 
+\end_layout
+
+\begin_layout Section
+Specifications
+\end_layout
+
+\begin_layout Standard
+The games will be simulated using a python script which implements the rules
+ outlined in the previous section.
+ The only shared data structure available to players is the bids object.
+ This contains all of the bids from players in the current round.
+ The game playing AIs submitted will need to inheret from the Player class.
+ This interface defines a single method called 
+\begin_inset Quotes eld
+\end_inset
+
+move
+\begin_inset Quotes erd
+\end_inset
+
+ which takes the bids data structure, and the values of the current players
+ dice as arguments and returns a string representing the next move.
+ The return value must be 
+\begin_inset Quotes eld
+\end_inset
+
+Liar
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Spot on
+\begin_inset Quotes erd
+\end_inset
+
+, or a valid bid of the form 
+\begin_inset Quotes eld
+\end_inset
+
+a,b
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Competition Parameters
+\end_layout
+
+\begin_layout Standard
+The competition parameters i.e.
+ number of games, method of scoring, number of players per game, time limit
+ per move etc.
+ will be determined once all participants have signed up.
+ I'm very open to any suggestions people have about what the fairest way
+ in which to implement this is.
+ 
+\end_layout
+
+\end_body
+\end_document
