@@ -203,16 +203,8 @@ Spot on
 \begin_inset Quotes erd
 \end_inset
 
-, or a valid bid of the form 
-\begin_inset Quotes eld
-\end_inset
-
-a,b
-\begin_inset Quotes erd
-\end_inset
-
-.
- 
+, or a valid bid of type tuple where the first indexed item is the quantity
+ bid, and the second is the value.
 \end_layout
 
 \begin_layout Section
