@@ -5,7 +5,7 @@ class Skeptic(Player):
        preceding player is lying."""
 
     def move(self, bids, player_dice, n_dice):
-        """The move method returns ('Liar') if bids is not empty and (1,1) otherwise."""
+        """The move method returns 'Liar' if bids is not empty and (1,1) otherwise."""
         if any(bids):
             return 'Liar'
         else:
