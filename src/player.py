@@ -11,5 +11,5 @@ class Player(metaclass = ABCMeta):
         self.index = index
 
     @abstractmethod
-    def move(self, bids, dice) -> Union[str, Tuple[int, int]]:
+    def move(self, bids, player_dice, n_dice) -> Union[str, Tuple[int, int]]:
         """Make a move based on dice value and bids in round."""
