@@ -16,3 +16,22 @@ opponents dice. The following player then has three options:
 Once a challenge is made the round ends and a new round begins, and the player to the left of the loser of the challenge begins the next round. This continues until only one player has dice remaining.
 
 Finally, there are a couple of extra rules involving sixes. A die with a value of six is *wild* and can take on any value. For instance if a player made a bid that there were five dice with value of three on the table, and the following player challenged, then if there were four threes and three sixes, then we would say there are seven threes on the table. Consequently, to account for how much less likely there are to be a certain number of sixes on the table than the same number of another value, sixes are worth double for the purposes of bidding. For example if a player bid three fives, then the following player could bid two sixes as the value of two sixes is four. Alternatively if a player bid two sixes then the following player would need to bid at least five of another value, or three sixes.
+
+## Game Playing Agent Specifications
+Any game playing agent you wish to implement must inheret from the abstract base class `Player`, and implement the method `move`. The method `move` must take the following arguments:
+
+- `bids` : a list of tuples representing all of the bids made by players in the current round. Each tuple consists of a pair of Integers; the first defining the quantity bid, and the second the value bid. i.e. three fives is represented by (3, 5).
+
+- `player_dice` : a list of integers which represents the dice the player has rolled for the current round.
+
+- `n_dice` : a list representing the quantity of dice each player in the game has.
+
+The `move` method must return either a tuple representing a valid bid (in the format described above), or a string representing a challenge which must be one of:
+
+- "Liar"
+
+- "Spot on, lose two"
+
+- "Spot on, gain one"
+
+Lastly, the agent has the property `index` which represents their order in the game play i.e. a player with an index of 3 plays after a player of index 2, and before a player of index 3. A random index is chosen to determine which player starts in the first round. The same indexing is used for the `n_dice` variable, so agents may query the number of dice belonging to all other players.
