@@ -82,10 +82,12 @@ class Game():
         elif self.is_valid_challenge(move):
             self.execute_challenge(move)
         else:
-            print("Player says '{}', but '{}' is an invalid move. Player {} disqualified.".format(move, move, self.current_player.index))
+            print_info("Player says '{}', but '{}' is an invalid move. Player {} disqualified.".format(move, move, self.current_player.index))
             self.n_dice[self.current_player.index] = 0
             self.active_players -= 1
             self.current_player = self.get_next_player()
+            if self.active_players == 1:
+                self.game_over = True
         
 
     def execute_challenge(self, challenge):
