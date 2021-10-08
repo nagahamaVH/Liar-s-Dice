@@ -13,3 +13,6 @@ class Player(metaclass = ABCMeta):
     @abstractmethod
     def move(self, bids, player_dice, n_dice) -> Union[str, Tuple[int, int]]:
         """Make a move based on dice value and bids in round."""
+    
+    def get_info(self, dices, bids, n_dice, player_order):
+        pass
